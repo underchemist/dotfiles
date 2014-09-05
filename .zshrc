@@ -45,7 +45,8 @@ ZSH_THEME="norm"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git last-working-dir pep8 pip python sudo web-search)
+plugins=(git last-working-dir pep8 pip python sudo colored-man
+         colorize)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -76,5 +77,6 @@ export PATH="/home/underchemist/bin:/opt/texbin:/usr/local/sbin:/usr/local/bin:/
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+alias up='sudo apt-get update'
 alias zshconfig="vim ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vimconfig='vim ~/.vim/vimrc'

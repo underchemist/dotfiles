@@ -1,73 +1,62 @@
-" underchemist's vimrc configuration file
+" my vimrc config 2014-09-04
 
-"" COLORS
-let g:molokai_original = 1
+" Vundle & Plugin Config -----------------------------------------
+set nocompatible " be iMproved, required
+filetype off " required
 
-" enable syntax processing
-syntax enable
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-"" SPACES & TABS
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
-" backspace deletes instead of replaces
-set backspace=2
+" list plugins here
+Plugin 'scrooloose/nerdtree' " easy directory and project navigation
+Plugin 'kien/ctrlp.vim' " fuzzy search
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'} " vim status line plus add to rtp
+Plugin 'tomtom/tcomment_vim' " automatic commenting
 
-" number of spaces to a tab (when opening file)
-set tabstop=4
+call vundle#end()
+" -----------------------------------------------------------------
+
+" UI & Colours
+let g:molokai_original = 1 " color scheme
+syntax enable " enable syntax processing
+set mouse=a " alow mouse cursor use
+set number "show line numbers
+set showcmd " show previous command in bottom bar
+"set highlight " underline current line
+filetype plugin indent on " load filetype-specific indent files
+set lazyredraw " redraw only when needed
+set showmatch " show matching [{()}]
+
+" Spaces & Tabs
+set backspace=2 " restore normal backspace behaviour
+set tabstop=4 " number of spaces to a tab (when opening a file)
 set shiftwidth=4
+set softtabstop=4 " number of spaces to a tab while editing
+set expandtab " tabs are spaces ... <TAB> = SPACE?
 
-" number of spaces to a tab while editing (when tab is pressed)
-set softtabstop=4
+" Search
+set incsearch " search incrementally (as chars pressed)
+set hlsearch " higlight results
 
-" tabs are spaces... <TAB> = SPACE ?
-set expandtab
-
-"" UI
-" allow mouse cursor use
-set mouse=a
-
-" show line numbers
-set number
-
-" show previous command in bottom bar
-set showcmd
-
-" highlight current line
-set cursorline
-
-" load filetype-specific indent fiels
-filetype plugin indent on
-
-" redraw only when needed
-set lazyredraw
-
-" show matching [{()}]
-set showmatch
-
-"" SEARCH
-
-" search incrementally (as characters pressed)
-set incsearch
-
-" higlight results
-set hlsearch
-
-"" SHORTCUTS
-
-" leader is comma
-let mapleader=','
-
-" command mode trigger is jk now, not esc
-inoremap jk <esc>
-
-" move vertically by visual line
+" Shortcuts & remaps
+let mapleader=',' " leader is comma
+inoremap jk <esc> " command mode trigger is jk now, not <esc>
+" movement keys
 nnoremap j gj
 nnoremap k gk
-
-" move to beginning/end of line
 nnoremap B ^
 nnoremap E $
+let g:ctrlp_map = '<c-p>' " ctrlp trigger
 
-"" PLUGINS
-
-" Pathogen (plugin manager)
-call pathogen#infect()
+" plugin specific settings
+" powerline
+set laststatus=2
+set encoding=utf-8
+set t_Co=256
+let g:Powerline_symbols = 'fancy'
