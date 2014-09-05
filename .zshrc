@@ -80,3 +80,4 @@ export PATH="/home/underchemist/bin:/opt/texbin:/usr/local/sbin:/usr/local/bin:/
 alias up='sudo apt-get update'
 alias zshconfig="vim ~/.zshrc"
 alias vimconfig='vim ~/.vim/vimrc'
+alias open='xdg-open'
