@@ -46,7 +46,7 @@ ZSH_THEME="norm"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git last-working-dir pep8 pip python sudo colored-man
-         colorize)
+         colorize virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -81,3 +81,16 @@ alias up='sudo apt-get update'
 alias zshconfig="vim ~/.zshrc"
 alias vimconfig='vim ~/.vim/vimrc'
 alias open='xdg-open'
+
+# load virtualenvwrapper for python (after custom PATHs)
+source /usr/local/bin/virtualenvwrapper.sh
+
+# testing pelican oh-my-zsh plugin
+alias pb='make html' # (re)generate the web site
+alias pc='make clean' # remove the generated files
+alias pbr='make regenerate' # regnerate files upon modification
+alias pp='make publish' # generate using publishconf.py
+alias pl='make serve' # serve site at http:localhost:8000
+alias pd='make devserver' # start/restart develop_server.py
+alias psp='make stopserver' # stop local server
+alias pgit='make github' # upload to the web site via gh-pages
