@@ -81,6 +81,7 @@ alias up='sudo apt-get update'
 alias zshconfig="vim ~/.zshrc"
 alias vimconfig='vim ~/.vim/vimrc'
 alias open='xdg-open'
+alias zathuraf='zathura --fork'
 
 # load virtualenvwrapper for python (after custom PATHs)
 source /usr/local/bin/virtualenvwrapper.sh

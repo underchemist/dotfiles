@@ -18,6 +18,8 @@ Plugin 'scrooloose/nerdtree' " easy directory and project navigation
 Plugin 'kien/ctrlp.vim' " fuzzy search
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'} " vim status line plus add to rtp
 Plugin 'tomtom/tcomment_vim' " automatic commenting
+Plugin 'msanders/snipmate.vim' " useful autocomplete snippets
+Plugin 'LaTeX-Box-Team/LaTeX-Box' " latex plugin
 
 call vundle#end()
 " -----------------------------------------------------------------
