@@ -1,5 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export LC_ALL=en_CA.UTF-8
+export LANG=en_CA.UTF-8
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -45,14 +47,14 @@ ZSH_THEME="norm"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git last-working-dir pep8 pip python sudo colored-man
-         colorize virtualenvwrapper)
+plugins=(git pep8 pip python sudo colored-man
+         colorize virtualenvwrapper )
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/home/underchemist/bin:/opt/texbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/underchemist/.local/bin/"
+export PATH="/home/underchemist/bin:/opt/texbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/underchemist/.local/texlive/bin/x86_64-linux"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -84,7 +86,7 @@ alias open='xdg-open'
 alias zathuraf='zathura --fork'
 
 # load virtualenvwrapper for python (after custom PATHs)
-source /usr/local/bin/virtualenvwrapper.sh
+# source /usr/local/bin/virtualenvwrapper.sh
 
 # testing pelican oh-my-zsh plugin
 alias pb='make html' # (re)generate the web site

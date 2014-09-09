@@ -19,7 +19,7 @@ Plugin 'kien/ctrlp.vim' " fuzzy search
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'} " vim status line plus add to rtp
 Plugin 'tomtom/tcomment_vim' " automatic commenting
 Plugin 'msanders/snipmate.vim' " useful autocomplete snippets
-Plugin 'LaTeX-Box-Team/LaTeX-Box' " latex plugin
+Plugin 'vim-scripts/TeX-9' " latex plugin
 
 call vundle#end()
 " -----------------------------------------------------------------
@@ -65,3 +65,6 @@ let g:Powerline_symbols = 'fancy'
 
 " nerdtree
 nmap <leader>n :NERDTree<cr>
+
+" TeX-9 config
+let g:tex_nine_config = { 'compiler': 'pdflatex' }
