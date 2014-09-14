@@ -85,8 +85,8 @@ end
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-    names = { 'main', 'www', 'term', 'doc', 'misc', 'irc', 7, 8, 9 },
-    layout = {layouts[1], layouts[1], layouts[3], layouts[1], layouts[8], layouts[9], layouts[1], layouts[1], layouts[1] } 
+    names = { 'main', 'www', 'term', 'doc', 'media', 'irc', 7, 8, 9 },
+    layout = {layouts[1], layouts[1], layouts[1], layouts[1], layouts[8], layouts[9], layouts[1], layouts[1], layouts[1] } 
 }
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
@@ -240,7 +240,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
     awful.key({ modkey, "Control"    }, "l", 
         function () 
-            awful.util.spawn("slimlock") 
+            awful.util.spawn("xscreensaver-command -lock") 
         end), 
     awful.key({ modkey,           }, "j",
         function ()
@@ -267,6 +267,15 @@ globalkeys = awful.util.table.join(
                 client.focus:raise()
             end
         end),
+
+    -- Multimedia keys
+    awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 5%+") end),
+    awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 5%-") end),
+    awful.key({ }, "XF86AudioMute", function () awful.util.spawn("amixer set Master toggle") end),
+    awful.key({ }, "XF86MonBrightnessDown", function ()
+        awful.util.spawn("xbacklight -dec 15") end),
+    awful.key({ }, "XF86MonBrightnessUp", function ()
+        awful.util.spawn("xbacklight -inc 15") end),    
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
@@ -389,10 +398,51 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
-}
+
+    -- Set google chrome to always open tag 2 of screen 1
+    { rule = { class = 'Google-chrome-beta' }, 
+      properties = { }, callback = function (c) 
+                            if not skipMovingGC then 
+                                awful.client.movetotag(tags[1][2], c) 
+                                skipMovingGC = true 
+                            end 
+                        end},
+    { rule = { class = 'Zathura' }, 
+      properties = {tag = tags[1][4] } }, 
+
+    { rule = {instance = 'terminator-ranger' },
+      properties = { }, callback = function (c)
+                            if not skipMovingTR then
+                                awful.client.movetotag(tags[1][3], c)
+                                skipMovingTR = true
+                            end
+                        end},
+    { rule = {instance = 'term1' },
+      properties = { }, callback = function (c)
+                            if not skipMovingT1 then
+                                awful.client.movetotag(tags[1][3], c)
+                                skipMovingT1 = true
+                            end
+                        end},
+    { rule = {instance = 'term2' },
+      properties = { }, callback = function (c)
+                            if not skipMovingT2 then
+                                awful.client.movetotag(tags[1][3], c)
+                                skipMovingT2 = true
+                            end
+                        end},
+    { rule = { instance = "terminator-htop" },
+      properties = { tag = tags[1][1] } },
+
+    { rule = { instance = "terminator-rtorrent" },
+      properties = { tag = tags[1][1] } },
+
+    { rule = {instance = "terminator-weechat" },
+      properties = { tag = tags[1][6] } },
+
+    { rule = {instance = "terminator-ncmpcpp" },
+      properties = { tag = tags[1][5]  } }
+  }
 -- }}}
 
 -- {{{ Signals
@@ -479,6 +529,37 @@ function run_once(cmd)
   awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 
-run_once("dropboxd")
-run_once("wicd-gtk --tray")
+do
+    local cmds = 
+    {
+        "dropboxd",
+        "mopidy",
+        "volumeicon",
+        "nm-applet",
+        "terminator --classname='terminator-ranger' --command='ranger'",
+        "terminator --classname='term1'",
+        "terminator --classname='term2'",
+        "terminator --classname='terminat-htop' --command='htop'",
+        "terminator --classname='rtorrent' --command='rtorrent'",
+        "terminator --classname='weechat' --command='weechat'",
+        "terminator --classname='ncmpcpp' --command='ncmpcp'",
+        "google-chrome-beta"
+        }
+    for _,i in pairs(cmds) do
+        awful.util.spawn(run_once(i))
+    end
+end
+
+-- run_once("dropboxd")
+-- run_once("deluged")
+-- run_once("volumeicon")
+-- run_once("google-chrome-beta")
+-- run_once("terminator --classname='terminator-ranger' --command='ranger'")
+-- run_once("terminator --classname='term1'")
+-- run_once("terminator --classname='term2'")
+-- run_once("terminator --classname='terminator-htop' --command='htop'")
+-- run_once("terminator --classname='terminator-rtorrent' --command='rtorrent'")
+-- run_once("terminator --classname='terminator-weechat' --command='weechat'")
+-- run_once("terminator --classname='terminator-ncmpcpp' --command='ncmpcpp'")
+-- run_once("nm-applet")
 -- }}}

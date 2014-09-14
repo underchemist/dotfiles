@@ -1,7 +1,9 @@
+# export locale settings so terminal isn't glitchy
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-export LC_ALL=en_CA.UTF-8
-export LANG=en_CA.UTF-8
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -48,13 +50,13 @@ ZSH_THEME="norm"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git pep8 pip python sudo colored-man
-         colorize virtualenvwrapper )
+         virtualenvwrapper )
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/home/underchemist/bin:/opt/texbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/underchemist/.local/texlive/bin/x86_64-linux"
+export PATH="/home/underchemist/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/underchemist/.local/texlive/bin/x86_64-linux"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -78,22 +80,10 @@ export PATH="/home/underchemist/bin:/opt/texbin:/usr/local/sbin:/usr/local/bin:/
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-alias up='sudo apt-get update'
+# User aliases
 alias zshconfig="vim ~/.zshrc"
 alias vimconfig='vim ~/.vim/vimrc'
+alias awconfig='vim ~/.config/awesome/rc.lua'
 alias open='xdg-open'
 alias zathuraf='zathura --fork'
-
-# load virtualenvwrapper for python (after custom PATHs)
-# source /usr/local/bin/virtualenvwrapper.sh
-
-# testing pelican oh-my-zsh plugin
-alias pb='make html' # (re)generate the web site
-alias pc='make clean' # remove the generated files
-alias pbr='make regenerate' # regnerate files upon modification
-alias pp='make publish' # generate using publishconf.py
-alias pl='make serve' # serve site at http:localhost:8000
-alias pd='make devserver' # start/restart develop_server.py
-alias psp='make stopserver' # stop local server
-alias pgit='make github' # upload to the web site via gh-pages
+alias vlatex='vim --servername latex'
