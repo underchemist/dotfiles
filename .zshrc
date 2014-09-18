@@ -57,6 +57,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH="/home/underchemist/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/underchemist/.local/texlive/bin/x86_64-linux"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -87,3 +88,4 @@ alias awconfig='vim ~/.config/awesome/rc.lua'
 alias open='xdg-open'
 alias zathuraf='zathura --fork'
 alias vlatex='vim --servername latex'
+alias brightoff="echo '0' | sudo tee /sys/class/leds/smc::kbd_backlight/brightness"
