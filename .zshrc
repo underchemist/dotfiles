@@ -1,7 +1,3 @@
-# export locale settings so terminal isn't glitchy
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -49,16 +45,15 @@ ZSH_THEME="norm"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pep8 pip python sudo colored-man
-         virtualenvwrapper )
+plugins=(virtualenvr git pep8 pip python sudo colored-man)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/home/underchemist/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/underchemist/.local/texlive/bin/x86_64-linux"
-
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/home/underchemist/bin/:/usr/local/texlive/2014/bin/x86_64-linux:/usr/local/sbin:/usr/local/bin:/usr/local/go/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export MANPATH="/usr/local/texlive/2014/texmf/doc/man:/usr/local/man:$MANPATH"
+export INFOPATH="/usr/local/texlive/2014/texmf/doc/info:$INFOPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -74,18 +69,26 @@ export PATH="/home/underchemist/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/us
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="~/.ssh/id_rsa"
+
+
+# editor env variable
+export EDITOR=vim
+
+# virtualenvwrapper
+export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
+export VIRTUALENVWRAPPER_VIRTUAL="/usr/local/bin/virtualenv"
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+source /home/underchemist/.local/bin/virtualenvwrapper.sh
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# User aliases
-alias zshconfig="vim ~/.zshrc"
-alias vimconfig='vim ~/.vim/vimrc'
-alias awconfig='vim ~/.config/awesome/rc.lua'
-alias open='xdg-open'
-alias zathuraf='zathura --fork'
-alias vlatex='vim --servername latex'
-alias brightoff="echo '0' | sudo tee /sys/class/leds/smc::kbd_backlight/brightness"
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias bo="echo '0' | sudo tee /sys/class/leds/smc::kbd_backlight/brightness"
+alias clip="xclip -i -selection clipboard"
+alias up="sudo apt-get update && sudo apt-get upgrade"

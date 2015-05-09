@@ -16,7 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 " list plugins here
 Plugin 'scrooloose/nerdtree' " easy directory and project navigation
 Plugin 'kien/ctrlp.vim' " fuzzy search
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'} " vim status line plus add to rtp
+Bundle 'Lokaltog/powerline', {'rtp': '$PYTHONPATH/powerline/bindings/vim/'}
 Plugin 'tomtom/tcomment_vim' " automatic commenting
 Plugin 'msanders/snipmate.vim' " useful autocomplete snippets
 Plugin 'LaTeX-Box-Team/LaTeX-Box' " latex plugin
@@ -49,7 +49,7 @@ set hlsearch " higlight results
 
 " Shortcuts & remaps
 let mapleader=',' " leader is comma
-inoremap jk <esc> " command mode trigger is jk now, not <esc>
+inoremap jk <esc>" command mode trigger is jk now, not <esc>
 " movement keys
 nnoremap j gj
 nnoremap k gk
@@ -63,6 +63,7 @@ set laststatus=2
 set encoding=utf-8
 set t_Co=256
 let g:Powerline_symbols = 'fancy'
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
 
 " nerdtree
 nmap <leader>n :NERDTree<cr>
@@ -72,5 +73,4 @@ nmap <leader>n :NERDTree<cr>
 
 " LaTeX-Box config
 let g:LatexBox_latexmk_preview_continuously = 1
-let g:LatexBox_build_dir = "./build/"
-" let g:LatexBox_latexmk_options = "-pdflatex='pdflatex -synctex=1 \%O \%S'"
+let g:LatexBox_quickfix = 2

@@ -113,8 +113,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# load virtualenvwrapper for python (after custom PATHs)
-source /usr/local/bin/virtualenvwrapper.sh
-
-# add .local to path
-export PATH=$PATH:/home/underchemist/.local/bin/
+# mount owncloud storage
+mount /home/underchemist/owncloud
