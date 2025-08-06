@@ -24,7 +24,7 @@ alias btoff="bluetoothctl disconnect 50:C2:75:8A:74:33"
 alias apt-up="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
 
 # general path 
-export PATH="$/home/ysebastien/.pixi/bin:$PATH:$HOME/.local/bin"
+export PATH="$HOME/.pixi/bin:$PATH:$HOME/.local/bin"
 
 # kubectl plugin manager krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -35,4 +35,4 @@ export NVM_DIR="$HOME/.nvm"
 
 autoload bashcompinit
 bashcompinit
-source /home/ysebastien/git/vcpkg/scripts/vcpkg_completion.zsh
+source $HOME/git/vcpkg/scripts/vcpkg_completion.zsh
