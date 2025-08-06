@@ -1,0 +1,8 @@
+packages:
+  linux:
+    apt:
+      - "curl"
+      - "git"
+      - "vim"
+      - "neovim"
+
