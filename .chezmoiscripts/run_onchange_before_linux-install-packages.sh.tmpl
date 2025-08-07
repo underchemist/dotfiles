@@ -1,0 +1,15 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+
+set -eufo pipefail
+
+{{ $sudo := "sudo " -}}
+{{ if eq .chezmoi.username "root" -}}
+{{   $sudo = "" -}}
+{{ end -}}
+
+{{ $sudo }}apt update 
+{{ range .packages.linux.apt -}}
+{{ $sudo }}apt install -y {{ . | quote }}
+{{ end -}}
+{{ end -}}
