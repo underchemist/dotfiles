@@ -16,9 +16,6 @@ else
 fi
 
 # Aliases
-# connect/disconnect Jabra Elite 4 Active
-alias bton="bluetoothctl connect 50:C2:75:8A:74:33"
-alias btoff="bluetoothctl disconnect 50:C2:75:8A:74:33"
 
 # update and upgrade system packages
 alias apt-up="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
@@ -26,13 +23,9 @@ alias apt-up="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
 # general path 
 export PATH="$HOME/.pixi/bin:$PATH:$HOME/.local/bin"
 
-# kubectl plugin manager krew
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 autoload bashcompinit
 bashcompinit
-source $HOME/git/vcpkg/scripts/vcpkg_completion.zsh
