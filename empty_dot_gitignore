@@ -1,0 +1,5 @@
+.vscode
+.envrc
+.DS_Store
+*.pyc
+scratch
