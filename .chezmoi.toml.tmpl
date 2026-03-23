@@ -1,0 +1,14 @@
+{{- $work := false -}}
+
+{{- if eq .chezmoi.hostname "sparkgeo-work" -}}
+{{- 	$work = true -}}
+{{- end -}}
+
+{{- $email := "yanns.tremblay@gmail.com" -}}
+{{- if $work -}}
+{{- 	$email = "stremblay-johnston@sparkgeo.com" -}}
+{{- end -}}
+
+[data]
+	email = {{ $email | quote }}
+	work = {{ $work }}
