@@ -4,5 +4,4 @@ packages:
       - "curl"
       - "git"
       - "vim"
-      - "neovim"
 
