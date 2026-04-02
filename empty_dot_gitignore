@@ -1,5 +1,5 @@
 .vscode
 .envrc
 .DS_Store
-*.pyc
+**/*.pyc
 scratch
