@@ -2,6 +2,7 @@
 
 set -eufo pipefail
 
+{{ if not (and (stat "/etc/apt/sources.list.d/docker.sources") (stat "/etc/apt/keyrings/docker.asc")) }}
 # docker
 sudo apt update 
 sudo apt install ca-certificates curl
@@ -16,4 +17,4 @@ Components: stable
 Architectures: $(dpkg --print-architecture)
 Signed-By: /etc/apt/keyrings/docker.asc
 EOF
-
+{{ end }}

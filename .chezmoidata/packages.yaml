@@ -1,7 +1,14 @@
 packages:
   linux:
-    apt:
+    base_deps:
       - "curl"
+      - "ca-certificates"
+    deps:
       - "git"
       - "vim"
+      - "docker-ce"
+      - "docker-ce-cli"
+      - "containerd.io"
+      - "docker-buildx-plugin"
+      - "docker-compose-plugin"
 

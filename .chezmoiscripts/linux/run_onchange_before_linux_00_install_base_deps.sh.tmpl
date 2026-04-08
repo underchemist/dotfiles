@@ -3,6 +3,6 @@
 set -eufo pipefail
 
 sudo apt update 
-{{ range .packages.linux.apt -}}
+{{ range .packages.linux.base_deps -}}
 sudo apt install -y {{ . | quote }}
 {{ end -}}

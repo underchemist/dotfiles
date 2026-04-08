@@ -20,3 +20,4 @@ vim.opt.encoding = "utf-8"
 vim.opt.termguicolors = true
 vim.opt.cmdheight = 1
 vim.opt.confirm = true
+vim.opt.clipboard = "unnamedplus"

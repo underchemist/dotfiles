@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -eufo pipefail
+
+sudo apt update 
+{{ range .packages.linux.deps -}}
+sudo apt install -y {{ . | quote }}
+{{ end -}}
