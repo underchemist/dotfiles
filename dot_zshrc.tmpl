@@ -3,12 +3,12 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git aws zsh-autosuggestions direnv)
+plugins=(git aws zsh-autosuggestions direnv zsh-kubectl-prompt)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
+export PAGER=less
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
@@ -20,19 +20,31 @@ fi
 # update and upgrade system packages
 alias apt-up="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
 
-# general path 
-export PATH="$HOME/.pixi/bin:$PATH:$HOME/.local/bin:$HOME/.local/bin/nvim-linux-x86_64/bin"
-export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
+# Path
+export PATH="$PATH:$HOME/.local/bin"
+# krew
+export PATH="$PATH:$HOME/.krew/bin"
+if [[ "$RPROMPT" != *'$ZSH_KUBECTL_PROMPT'* ]] ; then
+    RPROMPT="$RPROMPT "'%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+fi
+{{ if stat (joinPath .chezmoi.homeDir ".local/bin/nvim-linux-x86_64") -}}
+export PATH="$PATH:$HOME/.local/bin/nvim-linux-x86_64/bin"
+{{ end -}}
+{{ if stat (joinPath .chezmoi.homeDir ".pixi") -}}
+export PATH="$PATH:$HOME/.pixi/bin"
+{{ end -}}
 
-{{ if .work -}}
-# prescient config
+{{ if stat (joinPath .chezmoi.homeDir ".nvm") -}}
+# Node/nvim
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+{{ end -}}
+
+{{ if .work }}
+# Prescient
 export PRESCIENT_CONFIG_DIR=$HOME/.prescient
 {{ end -}}
 
 autoload bashcompinit
 bashcompinit
-
-# Node/nvim
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

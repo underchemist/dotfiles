@@ -14,6 +14,7 @@ require("lint").linters_by_ft = {
 }
 
 -- opts
+vim.g.mapleader = " "
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.encoding = "utf-8"
@@ -21,3 +22,6 @@ vim.opt.termguicolors = true
 vim.opt.cmdheight = 1
 vim.opt.confirm = true
 vim.opt.clipboard = "unnamedplus"
+vim.opt.hlsearch = false
+vim.opt.ignorecase = true
+vim.opt.smartcase = true

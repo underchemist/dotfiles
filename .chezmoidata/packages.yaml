@@ -11,4 +11,13 @@ packages:
       - "containerd.io"
       - "docker-buildx-plugin"
       - "docker-compose-plugin"
-
+      - "jq"
+      - "gh"
+      - "zsh"
+      - "ripgrep"
+      - "build-essential"
+      - "fzf"
+      - "shellcheck"
+    precompiled_binary_versions:
+      nvim:
+          version: 0.12.1
