@@ -18,6 +18,7 @@ packages:
       - "build-essential"
       - "fzf"
       - "shellcheck"
+      - "direnv"
     precompiled_binary_versions:
       nvim:
           version: 0.12.1
