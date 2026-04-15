@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -eufo pipefail
+mkdir -p $HOME/.local/bin
 {{ if lookPath "kubectl" }}
 # krew https://krew.sigs.k8s.io/docs/user-guide/setup/install/
 (
