@@ -16,9 +16,15 @@ packages:
       - "zsh"
       - "ripgrep"
       - "build-essential"
-      - "fzf"
       - "shellcheck"
       - "direnv"
+      - "tmux"
+      - "libclang-dev"
+      - "wl-clipboard"
     precompiled_binary_versions:
       nvim:
           version: 0.12.1
+      fzf:
+          version: 0.71.0
+      bat:
+          version: 0.26.1
