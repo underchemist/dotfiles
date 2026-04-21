@@ -5,9 +5,9 @@ mkdir -p $HOME/.local/bin
 
 # bin https://github.com/marcosnils
 (
-    set -x; cd "$(mktemp -d) &&
+    set -x; cd "$(mktemp -d)" &&
     curl -sSLO https://github.com/marcosnils/bin/releases/download/v0.25.4/bin_0.25.4_linux_amd64 &&
-    ./bin_0.25.4_linux_amd64 install https://github.com/marcosnils/bin  && # bootstrap
+    chmod u+x ./bin_0.25.4_linux_amd64 && ./bin_0.25.4_linux_amd64 install --force https://github.com/marcosnils/bin  && # bootstrap
     rm -rf ./bin_0.25.4_linux_amd64
 )
 
@@ -48,20 +48,12 @@ kubectl krew install ns
 
 # fzf
 (
-    set -x; cd "$(mktemp -d)" && 
-    FZF_VERSION={{ .packages.linux.precompiled_binary_versions.fzf.version }} &&
-    curl -fsSLO "https://github.com/junegunn/fzf/releases/download/v$FZF_VERSION/fzf-$FZF_VERSION-linux_amd64.tar.gz" &&
-    tar xvzf "fzf-$FZF_VERSION-linux_amd64.tar.gz" &&
-    cp fzf $HOME/.local/bin
+    set -x; bin install --force https://github.com/junegunn/fzf
 )
 
 # bat
 (
-    set -x; cd "$(mktemp -d)" &&
-    BAT_VERSION={{ .packages.linux.precompiled_binary_versions.bat.version }} &&
-    curl -fsSLO "https://github.com/sharkdp/bat/releases/download/v$BAT_VERSION/bat-v$BAT_VERSION-x86_64-unknown-linux-gnu.tar.gz" &&
-    tar xvzf "bat-v$BAT_VERSION-x86_64-unknown-linux-gnu.tar.gz" &&
-    cp "bat-v$BAT_VERSION-x86_64-unknown-linux-gnu/bat" $HOME/.local/bin
+    set -x; bin install --force https://github.com/sharkdp/bat --name "*gnu*"
 )
 
 # rustup

@@ -1,6 +1,16 @@
 {
     "default_path": "/home/ysebastien/.local/bin",
     "bins": {
+        "/home/ysebastien/.local/bin/bat": {
+            "path": "/home/ysebastien/.local/bin/bat",
+            "remote_name": "bat",
+            "version": "v0.26.1",
+            "hash": "753976acf8ce9b8bbb60c0304ab3a6b1cf63cbc7e009133a12dc8f5b47fcb4cc",
+            "url": "https://github.com/sharkdp/bat",
+            "provider": "github",
+            "package_path": "bat-v0.26.1-x86_64-unknown-linux-gnu/bat",
+            "pinned": false
+        },
         "/home/ysebastien/.local/bin/bin": {
             "path": "/home/ysebastien/.local/bin/bin",
             "remote_name": "bin_0.25.4_linux_amd64",
@@ -9,6 +19,16 @@
             "url": "https://github.com/marcosnils/bin",
             "provider": "github",
             "package_path": "",
+            "pinned": false
+        },
+        "/home/ysebastien/.local/bin/fzf": {
+            "path": "/home/ysebastien/.local/bin/fzf",
+            "remote_name": "fzf",
+            "version": "v0.71.0",
+            "hash": "85bd7f4e285166fc9203ec5462d107297f4ceb6541865daab1ed410d5483cdff",
+            "url": "https://github.com/junegunn/fzf",
+            "provider": "github",
+            "package_path": "fzf",
             "pinned": false
         }
     }
