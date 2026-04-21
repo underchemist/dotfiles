@@ -19,12 +19,15 @@ require("nvim-treesitter").install({
     "python",
     "markdown",
     "lua",
+    "yaml",
 })
 -- colorscheme
 require("catppuccin").setup({
     flavour = 'macchiato'
 })
+-- lsp
 vim.lsp.enable('pyright')
+vim.lsp.enable("yamlls")
 require('vim._core.ui2').enable({enable=true})
 require("mason").setup()
 require("fzf-lua").setup()
@@ -44,7 +47,7 @@ vim.opt.encoding = "utf-8"
 vim.opt.termguicolors = true
 vim.opt.cmdheight = 1
 vim.opt.confirm = true
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 vim.opt.hlsearch = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -55,6 +58,7 @@ vim.opt.iskeyword:append("-") -- include '-' in words
 vim.opt.selection = "inclusive"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.undofile = true
 
 -- keymaps
 -- fzf-lua

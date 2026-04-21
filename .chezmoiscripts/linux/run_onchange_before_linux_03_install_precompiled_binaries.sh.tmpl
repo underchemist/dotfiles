@@ -2,6 +2,15 @@
 
 set -eufo pipefail
 mkdir -p $HOME/.local/bin
+
+# bin https://github.com/marcosnils
+(
+    set -x; cd "$(mktemp -d) &&
+    curl -sSLO https://github.com/marcosnils/bin/releases/download/v0.25.4/bin_0.25.4_linux_amd64 &&
+    ./bin_0.25.4_linux_amd64 install https://github.com/marcosnils/bin  && # bootstrap
+    rm -rf ./bin_0.25.4_linux_amd64
+)
+
 {{ if lookPath "kubectl" }}
 # krew https://krew.sigs.k8s.io/docs/user-guide/setup/install/
 (

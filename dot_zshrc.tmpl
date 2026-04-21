@@ -15,6 +15,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='nvim'
 fi
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # Aliases
 alias k="kubectl"

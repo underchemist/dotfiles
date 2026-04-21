@@ -1,0 +1,15 @@
+{
+    "default_path": "/home/ysebastien/.local/bin",
+    "bins": {
+        "/home/ysebastien/.local/bin/bin": {
+            "path": "/home/ysebastien/.local/bin/bin",
+            "remote_name": "bin_0.25.4_linux_amd64",
+            "version": "v0.25.4",
+            "hash": "b6e7c0aab351f2a038a68243db7ee2a1b4bfd22757e83ad54e5af77add532883",
+            "url": "https://github.com/marcosnils/bin",
+            "provider": "github",
+            "package_path": "",
+            "pinned": false
+        }
+    }
+}
