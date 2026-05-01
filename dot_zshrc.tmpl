@@ -4,6 +4,11 @@ source $ZSH/custom/plugins/zsh-defer/zsh-defer.plugin.zsh
 
 ZSH_THEME="robbyrussell"
 
+zsh-defer source $ZSH/plugins/nvm/nvm.plugin.zsh
+zsh-defer source $ZSH/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+zsh-defer source $ZSH/plugins/fzf/fzf.plugin.zsh
+zsh-defer source $ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+
 plugins=(git aws direnv zsh-kubectl-prompt zoxide)
 
 source $ZSH/oh-my-zsh.sh
@@ -16,6 +21,8 @@ alias aptuua="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
 export PATH="$PATH:$HOME/.local/bin"
 # krew
 export PATH="$PATH:$HOME/.krew/bin"
+
+# kubectl prompt
 if [[ "$RPROMPT" != *'$ZSH_KUBECTL_PROMPT'* ]] ; then
     RPROMPT="$RPROMPT "'%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 fi
@@ -29,7 +36,3 @@ export PATH="$PATH:$HOME/.pixi/bin"
 source $HOME/.cargo/env
 {{ end -}}
 
-
-zsh-defer -12 source $ZSH/plugins/nvm/nvm.plugin.zsh
-zsh-defer -12 source $ZSH/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-zsh-defer -12 source $ZSH/plugins/fzf/fzf.plugin.zsh
