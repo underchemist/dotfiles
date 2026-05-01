@@ -1,0 +1,13 @@
+[".oh-my-zsh/custom/plugins/zsh-kubectl-prompt"]
+    type = "archive"
+    url = "https://github.com/superbrothers/zsh-kubectl-prompt/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"  # 1 week
+[".oh-my-zsh/custom/plugins/zsh-defer"]
+    type = "archive"
+    url = "https://github.com/romkatv/zsh-defer/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"  # 1 week
+
