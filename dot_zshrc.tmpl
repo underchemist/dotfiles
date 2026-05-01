@@ -1,25 +1,17 @@
+# zmodload zsh/zprof
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+source $ZSH/custom/plugins/zsh-defer/zsh-defer.plugin.zsh
 
 ZSH_THEME="robbyrussell"
 
-zstyle ':omz:plugins:nvm' lazy yes
-plugins=(git aws zsh-autosuggestions direnv zsh-kubectl-prompt nvm fzf)
+plugins=(git aws direnv zsh-kubectl-prompt zoxide)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-export PAGER=less
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
-export XDG_CONFIG_HOME="$HOME/.config"
-
 # Aliases
 alias k="kubectl"
-alias apt-up="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
+alias aptuua="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
 
 # Path
 export PATH="$PATH:$HOME/.local/bin"
@@ -38,13 +30,8 @@ export PATH="$PATH:$HOME/.pixi/bin"
 source $HOME/.cargo/env
 {{ end -}}
 
-{{ if .work }}
-# Prescient
-export PRESCIENT_CONFIG_DIR=$HOME/.prescient
-{{ end -}}
 
-autoload bashcompinit
-bashcompinit
-
-source <(fzf --zsh)
-eval "$(zoxide init zsh)"
+zsh-defer -12 source $ZSH/plugins/nvm/nvm.plugin.zsh
+zsh-defer -12 source $ZSH/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+zsh-defer -12 source $ZSH/plugins/fzf/fzf.plugin.zsh
+# zprof
