@@ -1,4 +1,4 @@
-# zmodload zsh/zprof
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/custom/plugins/zsh-defer/zsh-defer.plugin.zsh
@@ -20,18 +20,9 @@ export PATH="$PATH:$HOME/.krew/bin"
 if [[ "$RPROMPT" != *'$ZSH_KUBECTL_PROMPT'* ]] ; then
     RPROMPT="$RPROMPT "'%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 fi
-{{ if stat (joinPath .chezmoi.homeDir ".local/bin/nvim-linux-x86_64") -}}
 export PATH="$PATH:$HOME/.local/bin/nvim-linux-x86_64/bin"
-{{ end -}}
-{{ if stat (joinPath .chezmoi.homeDir ".pixi") -}}
 export PATH="$PATH:$HOME/.pixi/bin"
-{{ end -}}
-{{ if stat (joinPath .chezmoi.homeDir ".cargo") -}}
 source $HOME/.cargo/env
-{{ end -}}
-
-
 zsh-defer -12 source $ZSH/plugins/nvm/nvm.plugin.zsh
 zsh-defer -12 source $ZSH/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 zsh-defer -12 source $ZSH/plugins/fzf/fzf.plugin.zsh
-# zprof

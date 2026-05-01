@@ -10,6 +10,7 @@ vim.pack.add({
         'https://github.com/nvim-tree/nvim-web-devicons',
         { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
         { src=  "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate", name = "nvim-treesitter"},
+        { src = "https://github.com/alker0/chezmoi.vim", branch = "main", name = "chezmoi.vim" },
     })
 
 -- config

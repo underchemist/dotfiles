@@ -1,0 +1,8 @@
+[zsh]
+plugins = [
+    "git",
+    "aws",
+    "direnv",
+    "zsh-kubectl-prompt",
+    "zoxide",
+    ]
