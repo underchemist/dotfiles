@@ -1,16 +1,19 @@
+require('vim._core.ui2').enable({enable=true})
 -- set mapleader
 vim.g.mapleader = " "
 vim.g.localmapleader = " "
 
 -- plugins
 vim.pack.add({
-	'https://github.com/neovim/nvim-lspconfig',
-	'https://github.com/mason-org/mason.nvim',
-        'https://github.com/ibhagwan/fzf-lua',
-        'https://github.com/nvim-tree/nvim-web-devicons',
+        { src = "https://github.com/neovim/nvim-lspconfig", branch = "main" },
+	{ src = "https://github.com/mason-org/mason.nvim", branch = "main" },
+        { src = "https://github.com/ibhagwan/fzf-lua", branch = "main" },
+        { src = "https://github.com/nvim-tree/nvim-web-devicons", branch = "main" },
+        { src = "https://github.com/lewis6991/gitsigns.nvim", branch = "main" },
         { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
-        { src=  "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate", name = "nvim-treesitter"},
+        { src =  "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate", name = "nvim-treesitter"},
         { src = "https://github.com/alker0/chezmoi.vim", branch = "main", name = "chezmoi.vim" },
+        { src = "https://github.com/kylechui/nvim-surround", version = vim.version.range("4.x"), name = "nvim-surround" },
     })
 
 -- config
@@ -27,9 +30,9 @@ require("catppuccin").setup({
     flavour = 'macchiato'
 })
 -- lsp
-vim.lsp.enable('pyright')
+vim.lsp.enable("basedpyright")
 vim.lsp.enable("yamlls")
-require('vim._core.ui2').enable({enable=true})
+vim.lsp.enable("ruff")
 require("mason").setup()
 require("fzf-lua").setup()
 
