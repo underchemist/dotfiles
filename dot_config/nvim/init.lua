@@ -43,6 +43,17 @@ vim.api.nvim_create_autocmd('FileType', {
     callback = function() vim.treesitter() end,
 })
 
+-- markdown formatting
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+        vim.opt_local.wrap = true
+        vim.opt_local.linebreak = true
+        vim.opt_local.spell = true
+        vim.opt_local.spelllang = "en_ca"
+        vim.opt_local.breakindent = true
+    end,
+})
 -- opts
 vim.cmd.colorscheme  "catppuccin-nvim"
 vim.opt.shiftwidth = 4
@@ -72,3 +83,4 @@ vim.api.nvim_set_keymap("n", "<C-p>", [[<Cmd>lua require"fzf-lua".files()<CR>]],
 vim.api.nvim_set_keymap("n", "<C-l>", [[<Cmd>lua require"fzf-lua".live_grep()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<C-g>", [[<Cmd>lua require"fzf-lua".grep_project()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<F1>", [[<Cmd>lua require"fzf-lua".help_tags()<CR>]], {})
+
