@@ -23,9 +23,11 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.krew/bin"
 
 # kubectl prompt
+{{ if stat (joinPath .chezmoi.homeDir ".kubeconfig") -}}
 if [[ "$RPROMPT" != *'$ZSH_KUBECTL_PROMPT'* ]] ; then
     RPROMPT="$RPROMPT "'%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 fi
+{{ end -}}
 {{ if stat (joinPath .chezmoi.homeDir ".local/bin/nvim-linux-x86_64") -}}
 export PATH="$PATH:$HOME/.local/bin/nvim-linux-x86_64/bin"
 {{ end -}}
