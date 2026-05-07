@@ -7,6 +7,7 @@ vim.g.localmapleader = " "
 vim.pack.add({
         { src = "https://github.com/neovim/nvim-lspconfig", branch = "main" },
 	{ src = "https://github.com/mason-org/mason.nvim", branch = "main" },
+        { src = "https://github.com/mason-org/mason-lspconfig.nvim", branch = "main" },
         { src = "https://github.com/ibhagwan/fzf-lua", branch = "main" },
         { src = "https://github.com/nvim-tree/nvim-web-devicons", branch = "main" },
         { src = "https://github.com/lewis6991/gitsigns.nvim", branch = "main" },
@@ -30,10 +31,10 @@ require("catppuccin").setup({
     flavour = 'macchiato'
 })
 -- lsp
-vim.lsp.enable("basedpyright")
-vim.lsp.enable("yamlls")
-vim.lsp.enable("ruff")
 require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = { "basedpyright", "yamlls", "ruff", "stylua" }
+})
 require("fzf-lua").setup()
 
 -- autocmds
@@ -52,6 +53,14 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.spell = true
         vim.opt_local.spelllang = "en_ca"
         vim.opt_local.breakindent = true
+    end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "yaml", "toml" }, 
+    callback = function()
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.tabstop = 2
+        vim.opt_local.softtabstop = 2
     end,
 })
 -- opts
