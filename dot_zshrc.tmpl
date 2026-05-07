@@ -24,7 +24,7 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.krew/bin"
 
 # kubectl prompt
-{{ if stat (joinPath .chezmoi.homeDir ".kubeconfig") -}}
+{{ if stat (joinPath .chezmoi.homeDir ".kube/config") -}}
 if [[ "$RPROMPT" != *'$ZSH_KUBECTL_PROMPT'* ]] ; then
     RPROMPT="$RPROMPT "'%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 fi
