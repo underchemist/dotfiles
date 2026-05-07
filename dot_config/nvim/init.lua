@@ -74,7 +74,7 @@ vim.opt.selection = "inclusive"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.undofile = true
-
+vim.opt.shortmess:append("I")  -- disable intro 
 -- keymaps
 -- fzf-lua
 vim.api.nvim_set_keymap("n", "<C-\\>", [[<Cmd>lua require"fzf-lua".buffers()<CR>]], {})
