@@ -22,6 +22,7 @@ packages:
       - "libclang-dev"
       - "wl-clipboard"
       - "unzip"
+      - "htop"
     precompiled_binary_versions:
       nvim:
           version: 0.12.2
