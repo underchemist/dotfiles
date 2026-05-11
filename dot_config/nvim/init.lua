@@ -80,7 +80,7 @@ vim.opt.encoding = "utf-8"
 vim.opt.termguicolors = true
 vim.opt.cmdheight = 1
 vim.opt.confirm = true
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 vim.opt.hlsearch = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -97,6 +97,7 @@ vim.opt.complete = ".,w,b,o"
 vim.opt.completeopt = "menuone,noselect,fuzzy"
 vim.opt.autocomplete = true
 vim.opt.autocompletedelay = 250 -- ms
+vim.g.netrw_liststyle = 3 -- tree listing style
 
 -- keymaps
 -- fzf-lua
