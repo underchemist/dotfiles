@@ -22,6 +22,7 @@ vim.pack.add({
 	{ src = "https://github.com/kylechui/nvim-surround", version = vim.version.range("4.x"), name = "nvim-surround" },
 	{ src = "https://github.com/mfussenegger/nvim-dap", branch = "main", name = "nvim-dap" },
 	{ src = "https://github.com/mfussenegger/nvim-dap-python", branch = "main", name = "nvim-dap-python" },
+	{ src = "https://github.com/nvim-mini/mini.statusline", branch = "main", name = "mini.statusline" },
 })
 
 -- config
@@ -33,6 +34,8 @@ require("nvim-treesitter").install({
 	"lua",
 	"yaml",
 })
+require("mini.statusline").setup()
+
 -- colorscheme
 require("catppuccin").setup({
 	flavour = "macchiato",
@@ -101,7 +104,7 @@ vim.g.netrw_liststyle = 3 -- tree listing style
 
 -- keymaps
 -- fzf-lua
-vim.api.nvim_set_keymap("n", " " , [[<Cmd><Nop><CR>]], {})  -- disable move command of <space>
+vim.api.nvim_set_keymap("n", " ", [[<Cmd><Nop><CR>]], {}) -- disable move command of <space>
 vim.api.nvim_set_keymap("n", "<C-\\>", [[<Cmd>lua require"fzf-lua".buffers()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<C-b>", [[<Cmd>lua require"fzf-lua".builtin()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<C-p>", [[<Cmd>lua require"fzf-lua".files()<CR>]], {})
@@ -109,12 +112,26 @@ vim.api.nvim_set_keymap("n", "<C-l>", [[<Cmd>lua require"fzf-lua".live_grep()<CR
 vim.api.nvim_set_keymap("n", "<C-g>", [[<Cmd>lua require"fzf-lua".grep_project()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<F1>", [[<Cmd>lua require"fzf-lua".help_tags()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<C-k>", [[<Cmd>lua require"fzf-lua".keymaps()<CR>]], {})
-vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
-vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
-vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
-vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
-vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end)
-vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
-vim.keymap.set('n', '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+vim.keymap.set("n", "<F5>", function()
+	require("dap").continue()
+end)
+vim.keymap.set("n", "<F10>", function()
+	require("dap").step_over()
+end)
+vim.keymap.set("n", "<F11>", function()
+	require("dap").step_into()
+end)
+vim.keymap.set("n", "<F12>", function()
+	require("dap").step_out()
+end)
+vim.keymap.set("n", "<Leader>b", function()
+	require("dap").toggle_breakpoint()
+end)
+vim.keymap.set("n", "<Leader>B", function()
+	require("dap").set_breakpoint()
+end)
+vim.keymap.set("n", "<Leader>lp", function()
+	require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+end)
 -- vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
 -- vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
