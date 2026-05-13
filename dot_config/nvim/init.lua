@@ -83,11 +83,11 @@ vim.opt.encoding = "utf-8"
 vim.opt.termguicolors = true
 vim.opt.cmdheight = 1
 vim.opt.confirm = true
--- vim.opt.clipboard = "unnamedplus"
 vim.opt.hlsearch = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 vim.opt.showmode = false
 vim.opt.iskeyword:append("-") -- include '-' in words
@@ -112,26 +112,15 @@ vim.api.nvim_set_keymap("n", "<C-l>", [[<Cmd>lua require"fzf-lua".live_grep()<CR
 vim.api.nvim_set_keymap("n", "<C-g>", [[<Cmd>lua require"fzf-lua".grep_project()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<F1>", [[<Cmd>lua require"fzf-lua".help_tags()<CR>]], {})
 vim.api.nvim_set_keymap("n", "<C-k>", [[<Cmd>lua require"fzf-lua".keymaps()<CR>]], {})
-vim.keymap.set("n", "<F5>", function()
-	require("dap").continue()
-end)
-vim.keymap.set("n", "<F10>", function()
-	require("dap").step_over()
-end)
-vim.keymap.set("n", "<F11>", function()
-	require("dap").step_into()
-end)
-vim.keymap.set("n", "<F12>", function()
-	require("dap").step_out()
-end)
-vim.keymap.set("n", "<Leader>b", function()
-	require("dap").toggle_breakpoint()
-end)
-vim.keymap.set("n", "<Leader>B", function()
-	require("dap").set_breakpoint()
-end)
-vim.keymap.set("n", "<Leader>lp", function()
-	require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
-end)
--- vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
--- vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
+vim.api.nvim_set_keymap("n", "<F5>", [[<Cmd>lua require("dap").continue()<CR>]], {})
+vim.api.nvim_set_keymap("n", "<F10>", [[<Cmd>lua require("dap").step_over()<CR>]], {})
+vim.api.nvim_set_keymap("n", "<F11>", [[<Cmd>lua require("dap").step_into()<CR>]], {})
+vim.api.nvim_set_keymap("n", "<F12>", [[<Cmd>lua require("dap").step_out()<CR>]], {})
+vim.api.nvim_set_keymap("n", "<Leader>b", [[<Cmd>lua require("dap").toggle_breakpoint()<CR>]], {})
+vim.api.nvim_set_keymap("n", "<Leader>B", [[<Cmd>lua require("dap").set_breakpoint()<CR>]], {})
+vim.api.nvim_set_keymap(
+	"n",
+	"<Leader>lp",
+	[[<Cmd>lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>]],
+	{}
+)
