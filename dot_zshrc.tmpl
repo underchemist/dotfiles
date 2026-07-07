@@ -45,3 +45,27 @@ function scratch() {
     SCRATCH_DIR=$(mktemp -d)
     cd $SCRATCH_DIR
 }
+
+function source_gdal_env() {
+    if [[ -n "$_LD_LIBRARY_PATH" ]]; then
+        echo "source_gdal_env already called"
+        exit 1
+    fi
+
+    if [[ -n "$_PATH" ]]; then
+        exit 1
+    fi
+
+    if [[ -z "$LD_LIBRARY_PATH" ]]; then
+        export LD_LIBRARY_PATH="$HOME/opt/gdal/lib"
+    fi
+
+    export _PATH=$PATH
+    export PATH="$HOME/opt/gdal/bin:$PATH"
+}
+
+function deactivate_gdal_env() {
+    export PATH=$_PATH
+    unset LD_LIBRARY_PATH
+    unset _PATH
+}
