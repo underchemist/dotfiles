@@ -23,10 +23,13 @@ vim.pack.add({
 	{ src = "https://github.com/mfussenegger/nvim-dap", branch = "main", name = "nvim-dap" },
 	{ src = "https://github.com/mfussenegger/nvim-dap-python", branch = "main", name = "nvim-dap-python" },
 	{ src = "https://github.com/nvim-mini/mini.statusline", branch = "main", name = "mini.statusline" },
+	{ src = "https://github.com/nvim-mini/mini.pairs", branch = "main", name = "mini.pairs" },
 })
 
 -- config
-require("nvim-treesitter").setup({})
+require("nvim-treesitter").setup({
+    indent = { enable = false }
+})
 require("nvim-treesitter").install({
 	"rust",
 	"python",
@@ -35,6 +38,7 @@ require("nvim-treesitter").install({
 	"yaml",
 })
 require("mini.statusline").setup()
+require("mini.pairs").setup()
 
 -- colorscheme
 require("catppuccin").setup({
