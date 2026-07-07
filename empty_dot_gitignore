@@ -3,3 +3,5 @@
 .DS_Store
 **/*.pyc
 scratch
+
+**/.claude/settings.local.json
