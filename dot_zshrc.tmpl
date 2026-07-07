@@ -40,3 +40,8 @@ export PATH="$PATH:$HOME/.pixi/bin"
 source $HOME/.cargo/env
 {{ end -}}
 
+# Functions
+function scratch() {
+    SCRATCH_DIR=$(mktemp -d)
+    cd $SCRATCH_DIR
+}
