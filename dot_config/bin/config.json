@@ -9,26 +9,29 @@
             "url": "https://github.com/sharkdp/bat",
             "provider": "github",
             "package_path": "bat-v0.26.1-x86_64-unknown-linux-gnu/bat",
+            "selected_asset": "bat-v0.26.1-x86_64-unknown-linux-gnu.tar.gz",
             "pinned": false
         },
         "/home/ysebastien/.local/bin/bin": {
             "path": "/home/ysebastien/.local/bin/bin",
-            "remote_name": "bin_0.26.0_linux_amd64",
-            "version": "v0.26.0",
-            "hash": "e2c3546f25c1f82382dde95bbabc4684fb11947a78554d60947fb139a30c49c9",
-            "url": "https://github.com/marcosnils/bin/releases/tag/v0.26.0",
+            "remote_name": "bin_0.29.0_linux_amd64",
+            "version": "v0.29.0",
+            "hash": "f7f88883e1e572e72b0839631baeb159a5de71264f7088f706daf888b54e8c28",
+            "url": "https://github.com/marcosnils/bin",
             "provider": "github",
             "package_path": "",
+            "selected_asset": "",
             "pinned": false
         },
         "/home/ysebastien/.local/bin/fzf": {
             "path": "/home/ysebastien/.local/bin/fzf",
             "remote_name": "fzf",
-            "version": "v0.74.0",
-            "hash": "f6f460da107be61ffd40f89ab2439b62d1e3430f7eeca9c259f5c7c548c6532a",
-            "url": "https://github.com/junegunn/fzf/releases/tag/v0.74.0",
+            "version": "v0.74.1",
+            "hash": "f81a9eaf6240884496556c0a10407de12396471e7db845477f27f2ad51d2827a",
+            "url": "https://github.com/junegunn/fzf",
             "provider": "github",
             "package_path": "fzf",
+            "selected_asset": "fzf-0.74.1-linux_amd64.tar.gz",
             "pinned": false
         }
     }
