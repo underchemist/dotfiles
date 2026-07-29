@@ -57,11 +57,11 @@ function source_gdal_env() {
     fi
 
     if [[ -z "$LD_LIBRARY_PATH" ]]; then
-        export LD_LIBRARY_PATH="$HOME/opt/gdal/lib"
+        export LD_LIBRARY_PATH="$HOME/opt/gdal/lib:$HOME/opt/pdal/lib"
     fi
 
     export _PATH=$PATH
-    export PATH="$HOME/opt/gdal/bin:$PATH"
+    export PATH="$HOME/opt/gdal/bin:$HOME/opt/pdal/bin:$PATH"
 }
 
 function deactivate_gdal_env() {
