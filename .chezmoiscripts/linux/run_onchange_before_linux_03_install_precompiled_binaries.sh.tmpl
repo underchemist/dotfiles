@@ -2,6 +2,8 @@
 
 set -eufo pipefail
 mkdir -p $HOME/.local/bin
+# bootstrap path
+export PATH=$HOME/.local/bin:$PATH
 
 # bin https://github.com/marcosnils
 (
@@ -59,4 +61,29 @@ kubectl krew install ns
 # rustup
 (
     set -x; curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
+)
+
+# nvim-treesitter
+(
+    set -x; cargo install --locked tree-sitter-cli
+)
+
+# stylua
+(
+    set -x; cargo install stylua
+)
+
+# uv
+(
+    set -x; curl -LsSf https://astral.sh/uv/install.sh | sh
+)
+
+# basedpyright
+(
+    set -x; uv tool install basedpyright
+)
+
+# ruff
+(
+    set -x; uv tool install ruff
 )
