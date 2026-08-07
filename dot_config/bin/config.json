@@ -14,9 +14,9 @@
         },
         "/home/ysebastien/.local/bin/bin": {
             "path": "/home/ysebastien/.local/bin/bin",
-            "remote_name": "bin_0.29.0_linux_amd64",
-            "version": "v0.29.0",
-            "hash": "f7f88883e1e572e72b0839631baeb159a5de71264f7088f706daf888b54e8c28",
+            "remote_name": "bin_0.29.1_linux_amd64",
+            "version": "v0.29.1",
+            "hash": "f338bf89c500b348644a9a49b99adc4748e69b1c85ed43c463356847a1e1aa8b",
             "url": "https://github.com/marcosnils/bin",
             "provider": "github",
             "package_path": "",
@@ -26,12 +26,12 @@
         "/home/ysebastien/.local/bin/fzf": {
             "path": "/home/ysebastien/.local/bin/fzf",
             "remote_name": "fzf",
-            "version": "v0.74.1",
-            "hash": "f81a9eaf6240884496556c0a10407de12396471e7db845477f27f2ad51d2827a",
+            "version": "v0.74.2",
+            "hash": "667ef6e5fc804c460521e6d870f54b5defaecdbd05deccb622e9b8c321865769",
             "url": "https://github.com/junegunn/fzf",
             "provider": "github",
             "package_path": "fzf",
-            "selected_asset": "fzf-0.74.1-linux_amd64.tar.gz",
+            "selected_asset": "fzf-0.74.2-linux_amd64.tar.gz",
             "pinned": false
         }
     }
