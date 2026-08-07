@@ -20,9 +20,9 @@ alias aptuua="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
 alias today="date +'%Y-%m-%d'"
 
 # Path
-export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
 # krew
-export PATH="$PATH:$HOME/.krew/bin"
+export PATH="$HOME/.krew/bin:$PATH"
 
 # kubectl prompt
 {{ if stat (joinPath .chezmoi.homeDir ".kube/config") -}}
@@ -31,10 +31,10 @@ if [[ "$RPROMPT" != *'$ZSH_KUBECTL_PROMPT'* ]] ; then
 fi
 {{ end -}}
 {{ if stat (joinPath .chezmoi.homeDir ".local/bin/nvim-linux-x86_64") -}}
-export PATH="$PATH:$HOME/.local/bin/nvim-linux-x86_64/bin"
+export PATH="$HOME/.local/bin/nvim-linux-x86_64/bin:$PATH"
 {{ end -}}
 {{ if stat (joinPath .chezmoi.homeDir ".pixi") -}}
-export PATH="$PATH:$HOME/.pixi/bin"
+export PATH="$HOME/.pixi/bin:$PATH"
 {{ end -}}
 {{ if stat (joinPath .chezmoi.homeDir ".cargo") -}}
 source $HOME/.cargo/env

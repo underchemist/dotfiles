@@ -6,3 +6,9 @@ sudo apt update
 {{ range .packages.linux.deps -}}
 sudo apt install -y {{ . | quote }}
 {{ end -}}
+
+{{ if not .wsl }}
+    {{ range .packages.linux.docker -}}
+    sudo apt install -y {{ . | quote }}
+    {{ end -}}
+{{ end }}

@@ -1,14 +1,12 @@
 {{- $work := false -}}
-
-{{- if eq .chezmoi.hostname "sparkgeo-work" -}}
-{{- 	$work = true -}}
-{{- end -}}
+{{- $wsl := exec "wslinfo" "--version" -}}
 
 {{- $email := "yanns.tremblay@gmail.com" -}}
 {{- if $work -}}
-{{- 	$email = "stremblay-johnston@sparkgeo.com" -}}
+{{- 	$email = "GET_A_JOB" -}}
 {{- end -}}
 
 [data]
 	email = {{ $email | quote }}
 	work = {{ $work }}
+  wsl = {{ $wsl }}

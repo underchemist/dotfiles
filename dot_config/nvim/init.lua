@@ -6,8 +6,6 @@ vim.g.localmapleader = " "
 -- plugins
 vim.pack.add({
 	{ src = "https://github.com/neovim/nvim-lspconfig", branch = "main" },
-	{ src = "https://github.com/mason-org/mason.nvim", branch = "main" },
-	{ src = "https://github.com/mason-org/mason-lspconfig.nvim", branch = "main" },
 	{ src = "https://github.com/ibhagwan/fzf-lua", branch = "main" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons", branch = "main" },
 	{ src = "https://github.com/lewis6991/gitsigns.nvim", branch = "main" },
@@ -44,11 +42,8 @@ require("mini.pairs").setup()
 require("catppuccin").setup({
 	flavour = "macchiato",
 })
--- lsp
-require("mason").setup()
-require("mason-lspconfig").setup({
-	ensure_installed = { "basedpyright", "yamlls", "ruff", "stylua" },
-})
+
+-- fzf-lua
 require("fzf-lua").setup()
 
 -- autocmds
